@@ -23,8 +23,8 @@ import (
 	"net/url"
 	"time"
 
+	servicespb "github.com/Damione1/google-ads-pb/services"
 	gax "github.com/googleapis/gax-go/v2"
-	servicespb "github.com/shenzhencenter/google-ads-pb/services"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 	"google.golang.org/api/option/internaloption"
@@ -444,51 +444,4 @@ func (c *googleAdsGRPCClient) Mutate(ctx context.Context, req *servicespb.Mutate
 		return nil, err
 	}
 	return resp, nil
-}
-
-// GoogleAdsRowIterator manages a stream of *servicespb.GoogleAdsRow.
-type GoogleAdsRowIterator struct {
-	items    []*servicespb.GoogleAdsRow
-	pageInfo *iterator.PageInfo
-	nextFunc func() error
-
-	// Response is the raw response for the current page.
-	// It must be cast to the RPC response type.
-	// Calling Next() or InternalFetch() updates this value.
-	Response interface{}
-
-	// InternalFetch is for use by the Google Cloud Libraries only.
-	// It is not part of the stable interface of this package.
-	//
-	// InternalFetch returns results from a single call to the underlying RPC.
-	// The number of results is no greater than pageSize.
-	// If there are no more results, nextPageToken is empty and err is nil.
-	InternalFetch func(pageSize int, pageToken string) (results []*servicespb.GoogleAdsRow, nextPageToken string, err error)
-}
-
-// PageInfo supports pagination. See the google.golang.org/api/iterator package for details.
-func (it *GoogleAdsRowIterator) PageInfo() *iterator.PageInfo {
-	return it.pageInfo
-}
-
-// Next returns the next result. Its second return value is iterator.Done if there are no more
-// results. Once Next returns Done, all subsequent calls will return Done.
-func (it *GoogleAdsRowIterator) Next() (*servicespb.GoogleAdsRow, error) {
-	var item *servicespb.GoogleAdsRow
-	if err := it.nextFunc(); err != nil {
-		return item, err
-	}
-	item = it.items[0]
-	it.items = it.items[1:]
-	return item, nil
-}
-
-func (it *GoogleAdsRowIterator) bufLen() int {
-	return len(it.items)
-}
-
-func (it *GoogleAdsRowIterator) takeBuf() interface{} {
-	b := it.items
-	it.items = nil
-	return b
 }
