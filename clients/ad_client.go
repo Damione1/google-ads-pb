@@ -23,9 +23,9 @@ import (
 	"net/url"
 	"time"
 
+	resourcespb "github.com/Damione1/google-ads-pb/resources"
+	servicespb "github.com/Damione1/google-ads-pb/services"
 	gax "github.com/googleapis/gax-go/v2"
-	resourcespb "github.com/shenzhencenter/google-ads-pb/resources"
-	servicespb "github.com/shenzhencenter/google-ads-pb/services"
 	"google.golang.org/api/option"
 	"google.golang.org/api/option/internaloption"
 	gtransport "google.golang.org/api/transport/grpc"

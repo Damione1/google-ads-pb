@@ -41,7 +41,7 @@
 //	// - It may require correct/in-range values for request initialization.
 //	// - It may require specifying regional endpoints when creating the service client as shown in:
 //	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
-//	c, err := clients.NewAdGroupCriterionLabelClient(ctx)
+//	c, err := clients.NewAdGroupAdLabelClient(ctx)
 //	if err != nil {
 //		// TODO: Handle error.
 //	}
@@ -61,17 +61,17 @@
 //	// - It may require correct/in-range values for request initialization.
 //	// - It may require specifying regional endpoints when creating the service client as shown in:
 //	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
-//	c, err := clients.NewAdGroupCriterionLabelClient(ctx)
+//	c, err := clients.NewAdGroupAdLabelClient(ctx)
 //	if err != nil {
 //		// TODO: Handle error.
 //	}
 //	defer c.Close()
 //
-//	req := &servicespb.MutateAdGroupCriterionLabelsRequest{
+//	req := &servicespb.MutateAdGroupAdLabelsRequest{
 //		// TODO: Fill request struct fields.
-//		// See https://pkg.go.dev/github.com/shenzhencenter/google-ads-pb/services#MutateAdGroupCriterionLabelsRequest.
+//		// See https://pkg.go.dev/github.com/Damione1/google-ads-pb/services#MutateAdGroupAdLabelsRequest.
 //	}
-//	resp, err := c.MutateAdGroupCriterionLabels(ctx, req)
+//	resp, err := c.MutateAdGroupAdLabels(ctx, req)
 //	if err != nil {
 //		// TODO: Handle error.
 //	}
@@ -80,7 +80,7 @@
 //
 // # Use of Context
 //
-// The ctx passed to NewAdGroupCriterionLabelClient is used for authentication requests and
+// The ctx passed to NewAdGroupAdLabelClient is used for authentication requests and
 // for creating the underlying connection, but is not used for subsequent calls.
 // Individual methods on the client use the ctx given to them.
 //

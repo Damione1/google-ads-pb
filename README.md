@@ -21,11 +21,17 @@ Although this project isn't official, we deem it as low-risk due to its maturity
 
 | google-ads-pb     | Google Ads API   | Sunset date                  |
 | ----------------- | ---------------- | ---------------------------- |
-| v1.5.1            | v14.1            | End of May 2024              |
-| v1.5.0            | v14              | End of May 2024              |
-| v1.4.1            | v13.1            | End of January 2024          |
-| v1.4.0            | v13              | End of January 2024          |
-| v1.3.1            | v12              | <b>End of September 2023</b> |
+| Not generated yet            | v18              | End of September 2025       |
+| Not generated yet            | v17.1            | End of May 2025             |
+| Not generated yet            | v17              | End of May 2025             |
+| Not generated yet            | v16.1            | End of January 2025         |
+| Not generated yet            | v16              | End of January 2025         |
+| v1.7.0            | v15              | End of September 2024       |
+| v1.6.1            | v14.1            | End of May 2024             |
+| v1.6.0            | v14              | End of May 2024             |
+| v1.5.1            | v13.1            | End of January 2024         |
+| v1.5.0            | v13              | End of January 2024         |
+| v1.4.1            | v12              | <b>End of September 2023</b> |
 | <del>v1.2.1</del> | <del>v11.1</del> | Deprecated                   |
 | <del>v1.2.0</del> | <del>v11</del>   | Deprecated                   |
 | <del>v1.1.1</del> | <del>v10</del>   | Deprecated                   |
@@ -41,7 +47,7 @@ Although this project isn't official, we deem it as low-risk due to its maturity
 ```bash
 $ go get github.com/shenzhencenter/google-ads-pb
 ```
-    
+
 ## Getting started
 
 1. Set your environment variables.
@@ -77,7 +83,7 @@ defer conn.Close()
 ```go
 customerServiceClient := services.NewCustomerServiceClient(conn)
 accessibleCustomers, err := customerServiceClient.ListAccessibleCustomers(
-  ctx, 
+  ctx,
   &services.ListAccessibleCustomersRequest{},
 )
 if err != nil {

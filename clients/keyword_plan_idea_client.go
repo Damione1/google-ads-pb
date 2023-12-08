@@ -23,8 +23,8 @@ import (
 	"net/url"
 	"time"
 
+	servicespb "github.com/Damione1/google-ads-pb/services"
 	gax "github.com/googleapis/gax-go/v2"
-	servicespb "github.com/shenzhencenter/google-ads-pb/services"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 	"google.golang.org/api/option/internaloption"
@@ -388,51 +388,4 @@ func (c *keywordPlanIdeaGRPCClient) GenerateKeywordForecastMetrics(ctx context.C
 		return nil, err
 	}
 	return resp, nil
-}
-
-// GenerateKeywordIdeaResultIterator manages a stream of *servicespb.GenerateKeywordIdeaResult.
-type GenerateKeywordIdeaResultIterator struct {
-	items    []*servicespb.GenerateKeywordIdeaResult
-	pageInfo *iterator.PageInfo
-	nextFunc func() error
-
-	// Response is the raw response for the current page.
-	// It must be cast to the RPC response type.
-	// Calling Next() or InternalFetch() updates this value.
-	Response interface{}
-
-	// InternalFetch is for use by the Google Cloud Libraries only.
-	// It is not part of the stable interface of this package.
-	//
-	// InternalFetch returns results from a single call to the underlying RPC.
-	// The number of results is no greater than pageSize.
-	// If there are no more results, nextPageToken is empty and err is nil.
-	InternalFetch func(pageSize int, pageToken string) (results []*servicespb.GenerateKeywordIdeaResult, nextPageToken string, err error)
-}
-
-// PageInfo supports pagination. See the google.golang.org/api/iterator package for details.
-func (it *GenerateKeywordIdeaResultIterator) PageInfo() *iterator.PageInfo {
-	return it.pageInfo
-}
-
-// Next returns the next result. Its second return value is iterator.Done if there are no more
-// results. Once Next returns Done, all subsequent calls will return Done.
-func (it *GenerateKeywordIdeaResultIterator) Next() (*servicespb.GenerateKeywordIdeaResult, error) {
-	var item *servicespb.GenerateKeywordIdeaResult
-	if err := it.nextFunc(); err != nil {
-		return item, err
-	}
-	item = it.items[0]
-	it.items = it.items[1:]
-	return item, nil
-}
-
-func (it *GenerateKeywordIdeaResultIterator) bufLen() int {
-	return len(it.items)
-}
-
-func (it *GenerateKeywordIdeaResultIterator) takeBuf() interface{} {
-	b := it.items
-	it.items = nil
-	return b
 }
